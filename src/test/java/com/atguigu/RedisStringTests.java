@@ -45,5 +45,13 @@ public class RedisStringTests {
         System.out.println("user1 = " + user1);
     }
 
+    @Test
+    void testHash(){
+        stringRedisTemplate.opsForHash().put("user:1000","name","hu");
+        stringRedisTemplate.opsForHash().put("user:1000","age","20");
+        Object user = stringRedisTemplate.opsForHash().entries("user:1000");
+        System.out.println(user);
+    }
+
 
 }
